@@ -11,11 +11,9 @@ export const loadArticles = () => {
     return api.getArticles().then(ids => {
       ids.forEach(id => {
         api.getArticleById(id).then(article => {
-          articles.push(article);
-          console.log('pushed');
+          articles.push(article);      
         });
       });
-      console.log(articles, 'dispatch');
       dispatch(loadTopArticlesSucess(articles));      
     }).catch(error => {
       throw(error);
