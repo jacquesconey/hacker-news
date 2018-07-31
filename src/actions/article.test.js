@@ -10,39 +10,15 @@ const mockStore = configureMockStore(middleware);
 
 describe('Article Actions', () => {
   describe('loadArticles', () => {
-    it('should create a LOAD_TOP_ARTICLES_SUCESS action', () => {
-      const course = {id: 'clean-code', title: 'Clean Code'};
+    it('should create a LOAD_TOP_ARTICLES action', () => {
+      const articles = [{id: '7', title: 'The best article ever'}];
       const expectedAction = {
-        type: types.LOAD_TOP_ARTICLES_SUCESS,
+        type: types.LOAD_TOP_ARTICLES,
         articles: articles
       };
-      const action = actions.loadArticles();
+      const action = actions.loadTopArticlesSucess(articles);
 
       expect(action).toEqual(expectedAction);
-    });
-  });
-});
-
-describe('Async Actions', () => {
-  afterEach(() => {
-    nock.cleanAll();
-  });
-
-  describe('Actions Thunk', () => {
-    it('should create LOAD_COURSES_SUCCESS when loading articles', (done) => {
-      nock('https://hacker-news.firebaseio.com/v0')
-        .get('/topstories.json')
-        .reply(200, { body: { articles: [1, 2, 3] }});
-
-      const expectedActions = [
-        { type: types.LOAD_TOP_ARTICLES_SUCESS, body: {articles: [1, 2, 3]} }
-      ];
-      const store = mockStore({articles: []}, expectedActions, done);
-      store.dispatch(actions.loadArticles()).then(() => {
-        const actions = store.getActions();
-        expect(actions[0].type).toEqual(types.LOAD_TOP_ARTICLES_SUCESS);
-        done();
-      });
     });
   });
 });

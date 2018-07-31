@@ -13,7 +13,7 @@ describe('Header', () => {
   });
 
   it('contains 3 anchors via mount', () => {
-    const numAnchors = mount(<Header  />).find('a').length;
+    const numAnchors = mount(<Header />).find('a').length;
 
     expect(numAnchors).toEqual(4);
   });
