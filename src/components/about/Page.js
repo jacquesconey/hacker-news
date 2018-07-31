@@ -3,15 +3,15 @@
 // for mapState and mapDispatch.
 import React from 'react';
 
-class AboutPage extends React.Component {
+class Page extends React.Component {
     render() {
         return (
             <div>
                 <h1>About</h1>
-                <p>This application uses React, Redux, React Router and a variety of other helpful libraries.</p>
+                <p>Welcome to the new Hacker News App. This has been created and designed by Jacques Coney for your benefit. If you are currently using this don't forget to follow me on social media etc</p>
             </div>
         );
     }
 }
 
-export default AboutPage;
+export default Page;
